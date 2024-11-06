@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"name": "gates",
+			"path": ".."
+		},
+		{
+			"name": "test",
+			"path": "../../../test"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"backup": "cpp",
+			"array": "cpp",
+			"deque": "cpp",
+			"string": "cpp",
+			"unordered_map": "cpp",
+			"unordered_set": "cpp",
+			"vector": "cpp",
+			"string_view": "cpp",
+			"initializer_list": "cpp",
+			"regex": "cpp"
+		}
+	}
+}
