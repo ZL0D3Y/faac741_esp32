@@ -7,7 +7,7 @@ const char *passPath = "/pass.txt";
 
 IPAddress localIP, localGateway, subnet(255, 255, 0, 0);
 
-String ssid, pass, ip, gateway;
+String ssid, pass;
 
 bool checkCredentialsExists()
 {
@@ -20,8 +20,11 @@ bool checkCredentialsExists()
 
 void loadWiFiCredentials()
 {
-    ssid = readFile(ssidPath);
-    pass = readFile(passPath);
+    if (fileExists(ssidPath) && fileExists(passPath))
+    {
+        ssid = readFile(ssidPath);
+        pass = readFile(passPath);
+    }
 }
 
 bool initWiFi()
@@ -49,22 +52,10 @@ bool initWiFi()
             return false;
         }
     }
-
-    Serial.println(WiFi.localIP());
     return true;
 }
 
 void setupAccessPoint()
 {
     WiFi.softAP("Gates WIFI", NULL);
-}
-
-void resetWiFiSettings()
-{
-    WiFi.disconnect(true, true);
-    deleteFile(ssidPath);
-    deleteFile(passPath);
-    delay(3000);
-    Serial.println("WiFi settings have been fully reset.");
-    ESP.restart();
 }

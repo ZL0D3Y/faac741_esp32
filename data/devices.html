@@ -1,39 +1,56 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devices</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  </head>
-  <body>
+</head>
+<body>
     <div class="topnav">
-      <h1>Devices</h1>
+        <h1>Devices</h1>
     </div>
-    <br/>
-    <br/>
-    <div> 
-      <table class="devices_table">
-        <thead>
-        <tr>
-          <th>Device name</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        %DEVICES_LIST%
-      </tbody>
-      </table>
+    <br>
+    <div class="container">
+        <table class="devices_table">
+            <thead>
+                <tr>
+                    <th>Device name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                %DEVICES_LIST%
+            </tbody>
+               
+        </table>
     </div>
-    <div>
-      <form action="/devices" method="POST">
-        <p>
-          <label for="device">Device name</label>
-          <input type="text" id ="device" name="device"><br>
-          <input type ="submit" value ="Add device">
-        </p>
-      </form>
+    <div class="form-container">
+        <form action="/devices" method="POST">
+            <label for="device">Device name</label>
+            <input type="text" id="device" name="device" required>
+            <button type="submit">Add device</button>
+        </form>
     </div>
-  </body>
+</body>
 </html>
+
+
+<script>
+  function submitForm(deviceName) {
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = '/devices/delete';
+  
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'device';
+    input.value = deviceName;
+    form.appendChild(input);
+  
+    document.body.appendChild(form);
+    form.submit();
+  }
+  </script>

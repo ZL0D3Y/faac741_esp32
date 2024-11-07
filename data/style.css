@@ -1,112 +1,142 @@
-html {
-    font-family: Arial, Helvetica, sans-serif; 
-    display: inline-block; 
-    text-align: center;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.topnav {
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.container {
+  margin: 20px;
+  overflow-x: auto;
+}
+
+.devices_table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.devices_table th, .devices_table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.devices_table th {
+  background-color: #f2f2f2;
+  text-transform: uppercase;
+}
+
+.devices_table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.devices_table tr:hover {
+  background-color: #f1f1f1;
+}
+
+input[type="button"] {
+  background-color: #dc3545;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+input[type="button"]:hover {
+  background-color: #c82333;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+label {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+input[type="text"] {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+input[type="password"] {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 100%;
+  max-width: 400px;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+@media (max-width: 768px) {
+  .devices_table th, .devices_table td {
+      padding: 8px;
+      font-size: 14px;
   }
-  
-  h1 {
-    font-size: 1.8rem; 
-    color: white;
+
+  input[type="button"], button {
+      font-size: 12px;
+      padding: 6px 12px;
   }
-  
-  p { 
-    font-size: 1.4rem;
+
+  input[type="text"] {
+      font-size: 12px;
   }
-  
-  .topnav { 
-    overflow: hidden; 
-    background-color: #0A1128;
+}
+
+@media (max-width: 480px) {
+  .devices_table th, .devices_table td {
+      padding: 6px;
+      font-size: 12px;
   }
-  
-  body {  
-    margin: 0;
+
+  input[type="button"], button {
+      font-size: 10px;
+      padding: 4px 8px;
   }
-  
-  .content { 
-    padding: 5%;
+
+  input[type="text"] {
+      font-size: 10px;
   }
-  
-  .card-grid { 
-    max-width: 800px; 
-    margin: 0 auto; 
-    display: grid; 
-    grid-gap: 2rem; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
-  
-  .card { 
-    background-color: white; 
-    box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5);
-  }
-  
-  .card-title { 
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #034078
-  }
-  .devices_table {
-    width: 100%;
-  }
-  
-  input[type=submit] {
-    border: none;
-    color: #FEFCFB;
-    background-color: #034078;
-    padding: 15px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    width: 100px;
-    margin-right: 10px;
-    border-radius: 4px;
-    transition-duration: 0.4s;
-    }
-  
-  input[type=submit]:hover {
-    background-color: #1282A2;
-  }
-  
-  input[type=text], input[type=number], select {
-    width: 50%;
-    padding: 12px 20px;
-    margin: 18px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  label {
-    font-size: 1.2rem; 
-  }
-  .value{
-    font-size: 1.2rem;
-    color: #1282A2;  
-  }
-  .state {
-    font-size: 1.2rem;
-    color: #1282A2;
-  }
-  button {
-    border: none;
-    color: #FEFCFB;
-    padding: 15px 32px;
-    text-align: center;
-    font-size: 16px;
-    width: 100px;
-    border-radius: 4px;
-    transition-duration: 0.4s;
-  }
-  .button-on {
-    background-color: #034078;
-  }
-  .button-on:hover {
-    background-color: #1282A2;
-  }
-  .button-off {
-    background-color: #858585;
-  }
-  .button-off:hover {
-    background-color: #252524;
-  } 
+}

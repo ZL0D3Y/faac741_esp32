@@ -4,7 +4,7 @@
 #include "FileSystem.h"
 
 const char *devicesPath = "/pass.json";
-StaticJsonDocument<4096> devices; // Оголошуємо змінну devices
+StaticJsonDocument<4096> devices;
 
 void initiateGate()
 {
@@ -24,7 +24,6 @@ JsonArray getDevices()
       Serial.print("deserializeJson() failed: ");
       Serial.println(error.f_str());
       deleteFile(devicesPath);
-      Serial.println("Devices list flushed");
       return JsonArray();
     }
 

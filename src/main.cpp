@@ -5,8 +5,7 @@
 #include "GatesHandler.h"
 #include "config.h"
 
-
-unsigned long startTime = 0; 
+unsigned long startTime = 0;
 bool isCounting = false;
 
 void setup()
@@ -30,6 +29,7 @@ void setup()
         loadWiFiCredentials();
         if (initWiFi())
         {
+            getDevices();
             normalFlow();
         }
         else
@@ -40,34 +40,52 @@ void setup()
     else
     {
         setupAccessPoint();
-        setupWiFi();
+        setupDevice();
     }
+}
+
+void resetDevice()
+{
+    WiFi.disconnect(true, true);
+    deleteFile(ssidPath);
+    deleteFile(passPath);
+    deleteFile(devicesPath);
+    deleteFile(authUserPath);
+    deleteFile(authPassPath);
+    Serial.println("Device have been fully reseted.");
+    delay(3000);
+    ESP.restart();
 }
 
 void loop()
 {
     int signal = digitalRead(resetWifiPin);
-    if (signal == HIGH) {
-        if (!isCounting) {
+    if (signal == HIGH)
+    {
+        if (!isCounting)
+        {
             startTime = millis();
             isCounting = true;
         }
 
-        if (millis() - startTime >= 5000) {
-            isCounting = false; 
+        if (millis() - startTime >= 5000)
+        {
+            isCounting = false;
             digitalWrite(resetWifiPin, INPUT_PULLDOWN);
             digitalWrite(ledPin, HIGH);
             startTime = 0;
-            resetWiFiSettings();
+            resetDevice();
         }
-    } else {
-        if (isCounting) {
+    }
+    else
+    {
+        if (isCounting)
+        {
             isCounting = false;
             digitalWrite(resetWifiPin, INPUT_PULLDOWN);
         }
         startTime = 0;
     }
 
-    delay(100); 
+    delay(100);
 }
-

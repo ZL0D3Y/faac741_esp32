@@ -20,6 +20,7 @@ String readFile(const char* path) {
     fileContent = file.readStringUntil('\n');
     break;
   }
+  file.close();
   return fileContent;
 }
 
@@ -32,6 +33,7 @@ void writeFile(const char* path, const char* message) {
   if (!file.print(message)) {
     Serial.println("- write failed");
   }
+  file.close();
 }
 
 void deleteFile(const char* path) {

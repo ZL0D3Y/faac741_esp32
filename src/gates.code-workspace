@@ -13,7 +13,15 @@
             "ostream": "cpp",
             "tuple": "cpp",
             "type_traits": "cpp",
-            "utility": "cpp"
+            "utility": "cpp",
+            "*.tcc": "cpp",
+            "optional": "cpp",
+            "system_error": "cpp",
+            "regex": "cpp",
+            "string": "cpp",
+            "unordered_map": "cpp",
+            "unordered_set": "cpp",
+            "string_view": "cpp"
         }
     }
 }

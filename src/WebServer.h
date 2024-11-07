@@ -5,7 +5,14 @@
 
 extern const int ledPin;
 
+extern const char* authUserPath;
+extern const char* authPassPath;
+
+extern const char *authUser;
+extern const char *authPass;
+
+
 void normalFlow();
-void setupWiFi();
+void setupDevice();
 
 #endif

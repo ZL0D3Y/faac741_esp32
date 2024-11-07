@@ -15,6 +15,6 @@ bool checkCredentialsExists();
 void loadWiFiCredentials();
 bool initWiFi();
 void setupAccessPoint();
-void resetWiFiSettings();
+void resetDevice();
 
 #endif
