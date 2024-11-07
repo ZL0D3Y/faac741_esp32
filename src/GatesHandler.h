@@ -4,11 +4,8 @@
 #include <Arduino.h>
 #include <ArduinoJson.h>
 
-extern const char* devicesPath;
-extern StaticJsonDocument<4096> devices; 
+extern String gatesStatus;
 
 void initiateGate();
-void saveDevices();
-JsonArray getDevices();
 
 #endif

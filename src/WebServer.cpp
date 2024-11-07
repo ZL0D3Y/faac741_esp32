@@ -26,8 +26,6 @@ void normalFlow()
 {
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
             { 
-              Serial.println(authUser);
-              Serial.println(authPass);
               if (!request->authenticate(authUser.c_str(), authPass.c_str())) {
                  return request->requestAuthentication();
               }

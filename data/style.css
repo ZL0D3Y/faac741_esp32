@@ -140,3 +140,23 @@ button:hover {
       font-size: 10px;
   }
 }
+
+#status-rectangle {
+  width: 200px;
+  height: 100px;
+  margin: 50px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#status-rectangle.color0 {
+  background-color: green;
+}
+
+#status-rectangle.color1 {
+  background-color: red;
+}
+
+#status-rectangle.color2 {
+  background-color: yellow;
+}

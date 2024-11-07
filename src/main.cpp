@@ -23,6 +23,9 @@ void setup()
     pinMode(resetWifiPin, INPUT_PULLDOWN);
     digitalWrite(resetWifiPin, LOW);
 
+    pinMode(openSwitchPin, INPUT_PULLUP);
+    pinMode(closedSwitchPin, INPUT_PULLUP);
+
     delay(1000);
     if (loadConfig())
     {
@@ -46,7 +49,7 @@ void setup()
 void resetDevice()
 {
     WiFi.disconnect(true, true);
-    resetConfig();
+    resetDeviceConfig();
     Serial.println("Device have been fully reseted.");
     delay(3000);
     ESP.restart();
@@ -54,8 +57,7 @@ void resetDevice()
 
 void loop()
 {
-    int signal = digitalRead(resetWifiPin);
-    if (signal == HIGH)
+    if (digitalRead(resetWifiPin) == HIGH)
     {
         if (!isCounting)
         {
@@ -63,7 +65,7 @@ void loop()
             isCounting = true;
         }
 
-        if (millis() - startTime >= 5000)
+        if (millis() - startTime >= 3000)
         {
             isCounting = false;
             digitalWrite(resetWifiPin, INPUT_PULLDOWN);
