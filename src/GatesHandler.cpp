@@ -69,7 +69,6 @@ void waitForGateToClose(unsigned long timeoutMillis) {
 }
 
 void checkAndRecoverGateState() {
-  delay(3000);
     esp_reset_reason_t resetReason = esp_reset_reason();
     if (resetReason == ESP_RST_POWERON || resetReason == ESP_RST_BROWNOUT) {
         String previousStatus = readFile(gatesStatusPath);
@@ -119,10 +118,10 @@ void gateControlTask(void *parameter) {
     checkAndRecoverGateState();
 
     digitalWrite(relayPin, HIGH);
-    delay(100);
+    delay(300);
     digitalWrite(relayPin, LOW);
     checkGateStatus();
-    delay(3000);
+    delay(500);
 
     if (gatesStatus == "1") {
         waitForGateToClose(90000);
