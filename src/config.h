@@ -24,8 +24,8 @@ const int resetWifiPin = 25;
 // Gates
 const int relayPin = 13;
 
-const int openSwitchPin = 35;
-const int closedSwitchPin = 34;
+const int openSwitchPin = 33;
+const int closedSwitchPin = 32;
 
 
 void saveDevices();

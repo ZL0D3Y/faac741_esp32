@@ -7,5 +7,6 @@
 extern String gatesStatus;
 
 void initiateGate();
+void initiateCheckAndRecover();
 
 #endif

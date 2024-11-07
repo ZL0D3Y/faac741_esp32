@@ -23,8 +23,8 @@ void setup()
     pinMode(resetWifiPin, INPUT_PULLDOWN);
     digitalWrite(resetWifiPin, LOW);
 
-    pinMode(openSwitchPin, INPUT_PULLUP);
-    pinMode(closedSwitchPin, INPUT_PULLUP);
+    pinMode(openSwitchPin, INPUT_PULLDOWN);
+    pinMode(closedSwitchPin, INPUT_PULLDOWN);
 
     delay(1000);
     if (loadConfig())
@@ -32,6 +32,7 @@ void setup()
         if (initWiFi())
         {
             getDevices();
+            initiateCheckAndRecover();
             normalFlow();
         }
         else
