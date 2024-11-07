@@ -3,16 +3,11 @@
 
 #include <WiFi.h>
 #include <IPAddress.h>
+#include <config.h>
 
-extern const char* ssidPath;
-extern const char* passPath;
+extern String WiFiSSID;
+extern String WiFiPass;
 
-extern String ssid;
-extern String pass;
-
-
-bool checkCredentialsExists();
-void loadWiFiCredentials();
 bool initWiFi();
 void setupAccessPoint();
 void resetDevice();

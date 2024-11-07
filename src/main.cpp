@@ -24,9 +24,8 @@ void setup()
     digitalWrite(resetWifiPin, LOW);
 
     delay(1000);
-    if (checkCredentialsExists())
+    if (loadConfig())
     {
-        loadWiFiCredentials();
         if (initWiFi())
         {
             getDevices();
@@ -47,11 +46,7 @@ void setup()
 void resetDevice()
 {
     WiFi.disconnect(true, true);
-    deleteFile(ssidPath);
-    deleteFile(passPath);
-    deleteFile(devicesPath);
-    deleteFile(authUserPath);
-    deleteFile(authPassPath);
+    resetConfig();
     Serial.println("Device have been fully reseted.");
     delay(3000);
     ESP.restart();

@@ -1,16 +1,11 @@
 #ifndef WEBSERVER_H
 #define WEBSERVER_H
 
-#include <ESPAsyncWebServer.h>
+#include <config.h>
+#include "_helpers.h"
 
-extern const int ledPin;
-
-extern const char* authUserPath;
-extern const char* authPassPath;
-
-extern const char *authUser;
-extern const char *authPass;
-
+extern String authUser;
+extern String authPass;
 
 void normalFlow();
 void setupDevice();
