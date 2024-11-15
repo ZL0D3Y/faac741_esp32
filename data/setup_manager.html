@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP Wi-Fi Manager</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="favicon.png">
+</head>
+
+<body>
+    <div class="topnav">
+        <h1>ESP Wi-Fi Manager</h1>
+    </div>
+    <div class="container form-container">
+        <div class="card">
+            <form action="/" method="POST">
+                <label for="ssid">SSID</label>
+                <input type="text" id="ssid" name="ssid" required>
+                <label for="pass">Password</label>
+                <input type="password" id="pass" name="pass" required>
+                </br>
+
+                <label for="ssid">ESP User</label>
+                <input type="text" id="esp_user" name="esp_user" required>
+                <label for="pass">ESP Password</label>
+                <input type="password" id="esp_password" name="esp_password" required>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
