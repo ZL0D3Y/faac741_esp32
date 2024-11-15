@@ -19,7 +19,7 @@ extern String WiFiPass;
 
 // Control pins
 const int ledPin = 2;
-const int resetWifiPin = 25;
+const int resetWifiPin = 27;
 
 // Gates
 const int relayPin = 13;
